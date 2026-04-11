@@ -1,3 +1,5 @@
+//Works for Linux Machines...
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -85,6 +87,9 @@ void placePlayer(Player *player){
 void gameLoop(Player *player){
 	int condition = 1;
 	while(condition){
+		fillWhiteSpaceInBoxes();
+		createMap();
+		placePlayer(player);
 		system("clear");	
 		printf("%20s\n","MAZE GAME");
 		displayMaze();
@@ -96,9 +101,6 @@ void gameLoop(Player *player){
 			condition = 0;
 		}
 		movePlayer(player,input);
-		fillWhiteSpaceInBoxes();
-		createMap();
-		placePlayer(player);
 		if(player->y == 0){
 			printf("%20s\n","YOU WON!!!\n");
 			condition = 0;
@@ -108,9 +110,6 @@ void gameLoop(Player *player){
 
 int main(void){
 	Player player = {0,9};
-	fillWhiteSpaceInBoxes();
-	createMap();
-	maze[player.y][player.x] = '*';
 	gameLoop(&player);
 	return 0;
 }
