@@ -52,9 +52,6 @@ void createMap(){
 		} else if(i==9)
 			for(int j = 5; j<BOX_LEN; j++)
 				maze[i][j] = '#';
-		 
-
-
 	}	
 }
 
@@ -76,8 +73,8 @@ void movePlayer(Player *player, char movement){
 	} else if(movement == 'a'){
 		if(maze[player->y][player->x-1] != '#' && player->x >0)
 			player->x--;
-	} else if(movement == 'd' && player->x<9)
-		if(maze[player->y][player->x+1] != '#')
+	} else if(movement == 'd')
+		if(maze[player->y][player->x+1] != '#'  && player->x<9)
 			player->x++;
 }
 
