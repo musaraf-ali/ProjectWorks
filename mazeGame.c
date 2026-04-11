@@ -107,9 +107,7 @@ void gameLoop(Player *player){
 }
 
 int main(void){
-	Player player;
-	player.x = 0;
-	player.y = 9;
+	Player player = {0,9};
 	fillWhiteSpaceInBoxes();
 	createMap();
 	maze[player.y][player.x] = '*';
