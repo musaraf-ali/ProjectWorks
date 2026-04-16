@@ -40,6 +40,9 @@ void readString(char *string){
 void addTasks(Tasks *tasks){
 	if(tasks->givenTasks == MAX_TASKS){
 		printf("No More Task can be added!!");
+		system("/bin/stty raw");
+		getchar();
+		system("/bin/stty cooked");
 		return;
 	}
 	printf("Enter the task.\n");
