@@ -30,13 +30,15 @@ void displayTasks(Tasks tasks){
 void readString(char *string){
 	int index = 0;
 	char letter = ' ';
-	while(letter != '\n'){
+	while(letter != '\n' && index < MAX_STR_LEN){
 		letter = getchar();
-		string[index++] = letter;
+		if(letter == '\n')
+			string[index] = '\0';
+		else
+			string[index++] = letter;
 	}
-	index--;
-	string[index] = '\0';
 }
+
 void addTasks(Tasks *tasks){
 	if(tasks->givenTasks == MAX_TASKS){
 		printf("No More Task can be added!!");
